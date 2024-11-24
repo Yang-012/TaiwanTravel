@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- 導覽列 開始-->
+    <!-- 導覽列 -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">My Website</a>
@@ -20,7 +20,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <!-- 登入 按鈕 -->
+                    <!-- Login 按鈕 -->
                     <li class="nav-item">
                         <a class="btn btn-primary" href="{{ route('login') }}">登入</a>
                     </li>
@@ -28,8 +28,6 @@
             </div>
         </div>
     </nav>
-    <!-- 導覽列 結束-->
-
     <!-- 登入頁面 開始 -->
     <section class="bg-primary py-3 py-md-5 py-xl-8">
         <div class="container">
@@ -49,29 +47,22 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="mb-4">
-                                        <h2 class="h3">登入</h2>
+                                        <h2 class="h3">輸入電子郵件驗證碼</h2>
                                     </div>
                                 </div>
                             </div>
-                            <form method="POST" action="/send-verification-code">
+                            <form action="/verify-code" method="POST">
                                 @csrf
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="username" id="username"
-                                        placeholder="Your Username" required>
-                                    <label for="username" class="form-label">使用者名稱</label>
+                                    <input type="text" class="form-control" name="code" id="code" placeholder="驗證碼"
+                                        required>
+                                    <label for="code">驗證碼</label>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="name@example.com" required>
-                                    <label for="email" class="form-label">電子郵件</label>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-grid">
-                                        <button class="btn btn-primary btn-lg" type="submit">發送驗證碼</button>
-                                    </div>
+                                <input type="hidden" name="email" value="{{ $email }}">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-lg" type="submit">驗證</button>
                                 </div>
                             </form>
-
                             <div class="row">
                                 <div class="col-12">
                                     <p class="mt-4 mb-4">其他登入方式</p>
@@ -94,10 +85,11 @@
                                         </a>
                                         <a href="#!" class="btn btn-outline-dark bsb-btn-circle bsb-btn-circle-2xl">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" class="bi bi-x-logo" viewBox="0 0 24 24">
+                                                fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
                                                 <path
-                                                    d="M22.54 0H16.9L12 9.22L7.1 0H1.46L9.38 12L0 24h5.64l6.36-10.3L18.36 24H24L14.64 12L22.54 0Z" />
-                                            </svg> </a>
+                                                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.423A6.68 6.68 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.443-1.817 6.533 6.533 0 0 1-2.084.797A3.286 3.286 0 0 0 7.88 6.03a9.325 9.325 0 0 1-6.766-3.429 3.289 3.289 0 0 0 1.018 4.381A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.615-.059 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045 9.344 9.344 0 0 0 5.026 1.465" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
