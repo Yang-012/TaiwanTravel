@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('google_id')->nullable()->after('password'); // 添加 google_id 欄位
+            $table->string('phone_verification_code')->nullable(); // SMS 驗證碼
+            $table->timestamp('phone_verified_at')->nullable();    // 手機驗證時間
         });
     }
 
@@ -22,7 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('google_id'); // 回滾時刪除 google_id 欄位
+            $table->dropColumn('phone_verification_code');
+            $table->dropColumn('phone_verified_at');
         });
     }
 };

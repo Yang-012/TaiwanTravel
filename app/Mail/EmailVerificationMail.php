@@ -30,7 +30,7 @@ class EmailVerificationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Email Verification Mail',
+            subject: 'TaiwanTravel 電子郵件驗證信',
         );
     }
 
