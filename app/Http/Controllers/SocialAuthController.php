@@ -16,11 +16,11 @@ class SocialAuthController extends Controller
     public function handleProviderCallback($provider)
     {
         // 獲取第三方用戶資訊
-        $socialUser = Socialite::driver($provider)->stateless()->user();
-
+        $socialUser = Socialite::driver($provider)->user();
+        dd($socialUser);//測試API回傳資訊
         // 查找或創建用戶
         $user = User::firstOrCreate(
-            ['email' => $socialUser->getEmail()],
+            ['email' => $socialUser->getEmail() ?? null],
             ['name' => $socialUser->getName() ?? $socialUser->getNickname()]
         );
 

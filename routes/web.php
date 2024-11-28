@@ -151,10 +151,10 @@ Route::post('/verify-code', function (Request $request) {
         if (!$validated['email']) {
             return response()->json(['error' => 'Email is required for email verification.'], 422);
         }
-        
+
         $user = User::where('email', $validated['email'])
-                    ->where('email_verification_code', $validated['code'])
-                    ->first();
+            ->where('email_verification_code', $validated['code'])
+            ->first();
 
         if (!$user) {
             return response()->json(['error' => 'Invalid email verification code.'], 422);
@@ -167,7 +167,10 @@ Route::post('/verify-code', function (Request $request) {
 
         // 檢查是否需要顯示網站條款
         if (!$user->has_agreed_terms) {
-            return view('dashboard', ['showTermsModal' => true]);
+            return view('dashboard', [
+                'showTermsModal' => true,
+                'userName' => $user->name ?? '訪客', // 傳遞使用者的名稱，若無則顯示訪客
+            ]);
         }
 
         // 驗證成功，重定向到 Dashboard
@@ -179,8 +182,8 @@ Route::post('/verify-code', function (Request $request) {
         }
 
         $user = User::where('phone', $validated['phone'])
-                    ->where('phone_verification_code', $validated['code'])
-                    ->first();
+            ->where('phone_verification_code', $validated['code'])
+            ->first();
 
         if (!$user) {
             return response()->json(['error' => 'Invalid SMS verification code.'], 422);
@@ -193,7 +196,10 @@ Route::post('/verify-code', function (Request $request) {
 
         // 檢查是否需要顯示網站條款
         if (!$user->has_agreed_terms) {
-            return view('dashboard', ['showTermsModal' => true]);
+            return view('dashboard', [
+                'showTermsModal' => true,
+                'userName' => $user->name ?? '訪客', // 傳遞使用者的名稱，若無則顯示訪客
+            ]);
         }
         // 驗證成功，重定向到 Dashboard
         return redirect('/dashboard')->with('success', 'SMS verification successful.');
@@ -201,4 +207,3 @@ Route::post('/verify-code', function (Request $request) {
 
     return back()->withErrors(['error' => 'Invalid verification type.']);
 });
-

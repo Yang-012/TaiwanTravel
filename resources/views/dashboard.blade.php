@@ -33,7 +33,7 @@
         </div>
     </nav>
     <!-- 導覽列 結束 -->
-     
+
     <h1>這是後台</h1>
 
     <!-- 顯示用戶個人信息 開始 -->
@@ -59,10 +59,16 @@
         <a href="{{ route('social.login', ['provider' => 'google']) }}">綁定 Google</a>
         @endif
 
-        @if(isset($user->social_accounts['github']))
-        <p>已綁定 GitHub</p>
+        @if(isset($user->social_accounts['line']))
+        <p>已綁定 LINE</p>
         @else
-        <a href="{{ route('social.login', ['provider' => 'github']) }}">綁定 GitHub</a>
+        <a href="{{ route('social.login', ['provider' => 'line']) }}">綁定 LINE</a>
+        @endif
+
+        @if(isset($user->social_accounts['twitter']))
+        <p>已綁定 LINE</p>
+        @else
+        <a href="{{ route('social.login', ['provider' => 'twitter']) }}">綁定 TWITTER</a>
         @endif
     </div>
     <!-- 綁定第三方登入資訊 結束-->
@@ -74,11 +80,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="termsModalLabel">網站條款與隱私政策</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p>歡迎來到TaiwanTravel：</p>
-                    <p>你為第一次登入，請閱讀並同意以下條款：</p>
+                    <p><strong>{{ $userName }}</strong> 為第一次登入，請閱讀並同意以下條款：</p>
                     <ul>
                         <li>條款 1：您同意遵守所有相關規定。</li>
                         <li>條款 2：網站數據僅用於合法用途。</li>
@@ -91,6 +96,7 @@
                         @csrf
                         <button type="submit" class="btn btn-primary">我同意</button>
                     </form>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ url('/') }}'">不同意</button>
                 </div>
             </div>
         </div>

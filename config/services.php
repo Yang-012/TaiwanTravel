@@ -39,10 +39,14 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URL'),
     ],
-    'github' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_REDIRECT_URL'),
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => env('TWITTER_REDIRECT_URL'),
     ],
-
+    'line' => [
+        'client_id' => env('LINE_CLIENT_ID'), 
+        'client_secret' => env('LINE_CLIENT_SECRET'), 
+        'redirect' => env('LINE_REDIRECT_URL'), 
+    ],
 ];

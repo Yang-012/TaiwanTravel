@@ -129,7 +129,7 @@
                                             </svg>
                                         </a>
                                         <!-- LINE 登入按鈕 -->
-                                        <a href="#!"
+                                        <a href="{{ route('social.login', ['provider' => 'line']) }}"
                                             class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"
                                             style="width: 60px; height: 60px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
@@ -139,7 +139,7 @@
                                             </svg>
                                         </a>
                                         <!-- Twitter 登入按鈕 -->
-                                        <a href="#!"
+                                        <a href="{{ route('social.login', ['provider' => 'twitter']) }}"
                                             class="btn btn-outline-dark rounded-circle d-flex align-items-center justify-content-center"
                                             style="width: 60px; height: 60px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
