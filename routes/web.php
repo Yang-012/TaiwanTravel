@@ -20,6 +20,8 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+
+
 //登出頁面
 Route::middleware(['auth'])->group(function () {  //使用auth中介，確保登入者才能進入該route
     Route::post('/logout', function () {

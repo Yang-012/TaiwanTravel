@@ -17,7 +17,9 @@ class SocialAuthController extends Controller
     {
         // 獲取第三方用戶資訊
         $socialUser = Socialite::driver($provider)->user();
-        dd($socialUser);//測試API回傳資訊
+        
+        //dd($socialUser);//測試API回傳資訊，不需要就註解起來
+        
         // 查找或創建用戶
         $user = User::firstOrCreate(
             ['email' => $socialUser->getEmail() ?? null],
@@ -32,6 +34,14 @@ class SocialAuthController extends Controller
         // 登入用戶
         Auth::login($user, false);
 
+        // 檢查是否需要顯示網站條款
+        if (!$user->has_agreed_terms) {
+            return view('dashboard', [
+                'showTermsModal' => true,
+                'userName' => $user->name ?? '尚未輸入使用者名稱', // 傳遞使用者的名稱，若無則顯示訪客
+            ]);
+        }
+        // 驗證成功，重定向到 Dashboard
         return redirect('/dashboard');
     }
 }
