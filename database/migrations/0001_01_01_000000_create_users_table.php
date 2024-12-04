@@ -16,7 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('email_verification_code', 6)->nullable();
+            $table->string('phone')->nullable()->unique(); 
+            $table->string('phone_verification_code')->nullable(); 
+            $table->timestamp('phone_verified_at')->nullable();  
+            $table->json('social_accounts')->nullable();
+            $table->boolean('has_agreed_terms')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

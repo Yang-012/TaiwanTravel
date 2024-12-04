@@ -18,9 +18,9 @@ class SocialAuthController extends Controller
         // 獲取第三方用戶資訊
         $socialUser = Socialite::driver($provider)->user();
         
-        //dd($socialUser);//測試API回傳資訊，不需要就註解起來
+        //dd($socialUser);//測試API回傳資訊
         
-        // 查找或創建用戶
+        // 查找用戶，不存在則創建新用戶
         $user = User::firstOrCreate(
             ['email' => $socialUser->getEmail() ?? null],
             ['name' => $socialUser->getName() ?? $socialUser->getNickname()]
