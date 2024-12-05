@@ -34,8 +34,14 @@ php artisan serve
 ```
 ##email登入設置說明(.env檔中自行設置)
 ```bash
-MAIL_USERNAME=自己使用帳號
-MAIL_PASSWORD=應用程式密碼
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587                            #伺服器使用的port(587對應tls)
+MAIL_USERNAME=自己的GOOGLE帳號            #使用帳號
+MAIL_PASSWORD=自己GOOGLE帳號的應用程式密碼 #應用程式密碼(非email密碼，見以下說明)
+MAIL_ENCRYPTION=tls                      #加密方式
+MAIL_FROM_ADDRESS=自己的GOOGLE帳號        #信件來源
+MAIL_FROM_NAME="TaiwanHub"               #信件來源名稱
 ```
 GOOGLE應用程式密碼設置說明：https://support.google.com/accounts/answer/185833?hl=zh-Hant
 
