@@ -2,11 +2,11 @@
 
 請使用以下指令將此專案clone到您的本地環境：
 ```bash
-git clone https://github.com/Yang-012/TaiwanTravel.git
+git clone https://github.com/Yang-012/TravelHub.git
 ```
 1.進入此專案：
 ```bash
-cd TaiwanTravel
+cd TravelHub
 ```
 
 2.安裝 PHP 依賴：
