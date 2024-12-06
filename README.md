@@ -1,5 +1,5 @@
-## TravelHub
-# laravel檔案引入說明
+# TravelHub
+## laravel檔案引入說明
 
 請使用以下指令將此專案clone到您的本地環境：
 ```bash
@@ -33,7 +33,7 @@ php artisan migrate:fresh
 ```bash
 php artisan serve
 ```
-##email登入設置說明(.env檔中自行設置)
+## email登入設置說明(.env檔中自行設置)
 ```bash
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
@@ -46,7 +46,7 @@ MAIL_FROM_NAME="TaiwanHub"               #信件來源名稱
 ```
 GOOGLE應用程式密碼設置說明：https://support.google.com/accounts/answer/185833?hl=zh-Hant
 
-# 各頁面介紹
+## 各頁面介紹
 
 | 檔案位置                          | 功能描述                          |
 |-----------------------------------|-----------------------------------|
