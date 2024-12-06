@@ -1,5 +1,5 @@
 ## TravelHub
-#laravel檔案引入說明
+# laravel檔案引入說明
 
 請使用以下指令將此專案clone到您的本地環境：
 ```bash
