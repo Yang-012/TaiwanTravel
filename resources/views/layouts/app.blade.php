@@ -4,35 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaiwanTravel</title>
+    <title>TravelHub</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- 自定義顏色 -->
+    <!-- jQuery 的 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- 全局自定義 -->
     <style>
-        /* 將Bootstrap中的primary改為#a2eafa */
-        .bg-primary {
-            background-color: #a2eafa !important;
-        }
-        .btn-primary {
+        /* 將Bootstrap中的primary改為#a2eafa*/
+        [class*="-primary"] {
             background-color: #a2eafa !important;
             border-color: #a2eafa !important;
             color: #000 !important;
         }
-        .text-bg-primary {
-            background-color: #a2eafa !important;
-            color: #000 !important;
-        }
-        /* login 頁面的pills nav */
-        .nav-pills .nav-link.active {
-            background-color: #f9d458;
-            color: #000;
-            border: 1px solid #f9d458;
-            border-radius: 10px; 
-        }
     </style>
+    @stack('styles') <!-- 局部自定義 -->
 </head>
 
 <body>

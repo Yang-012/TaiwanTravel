@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@push('styles')
+<style>
+    /* 自定義該頁面的CSS*/
+    .nav-pills .nav-link.active {
+        background-color: #f9d458;
+        color: #000;
+        border: 1px solid #f9d458;
+        border-radius: 10px;
+    }
+</style>
+@endpush
 
 @section('content')
 <!-- 登入頁面 開始 -->
